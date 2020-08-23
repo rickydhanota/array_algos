@@ -45,12 +45,10 @@ function removeAt(arr, idx){
     for (var i=0; i<arr.length; i++){
         if(arr[i]==arr[idx]){
             temp = arr[i];
-            // console.log(temp)
             for(var i=idx; i<arr.length; i++){
                 arr[i] = arr[i+1];
             }
             arr.pop();
-            console.log(arr);
         }
     }
     return `The array is ${arr} and the value removed is ${temp}`
@@ -62,27 +60,32 @@ console.log(removeAt([20,21,22,23,24], 2))
 
 // //5. Swap positions of successive pairs of values of given array. If length is odd, do not change the final element. For [1,2,3,4], return [2,1,4,3]. For example, change input ["Brendan",true,42] to [true,"Brendan",42]. As with all array challenges, do this without using any built-in array methods.
 
-// function swapper(arr){
-//     for (var i=0; i<arr.length-1; i++){
-//         if (arr.length%2==0){
-//             counter1 = arr[i];
-//             counter2 = arr[i+1];
-//             arr[i]=counter2;
-//             arr[i+1]=counter1;
-//             i=i+1;
-//         }
-//         else if (arr.length%2==1){
-//             counter1 = arr[i]; //5, 7
-//             counter2 = arr[i+1];//6, 8
-//             arr[i]=counter2;
-//             arr[i+1]=counter1;
-//             i+=1;
-//         }
-//     }
-//     console.log(arr);
-// }
+function swapper(arr){
+    if(arr.length%2==0){
+        var temp = 0;
+        for(var i=0; i<arr.length; i=i+2){
+            temp=arr[i];
+            arr[i] = arr[i+1];
+            arr[i+1] = temp;    
+        }
+    }
+    else if (arr.length%2 == 1){
+        var temp = 0;
+        for(var i = 0; i<arr.length; i=i+2){
+            if(i+1>=arr.length-1){
+                return arr;
+            }
+            else{
+                temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+            }
+        }
+    }
+    return arr;
+}
+console.log(swapper([1,2,3,5]));
 
-// var b= swapper([5,6,7,8,9, 10]);
 // /////////////////////////////////////////////////////
 
 // //6. Sara is looking to hire an awesome web developer and has received applications from various sources. Her assistant alphabetized them but noticed some duplicates. Given a sorted array, remove duplicate values. Because array elements are already in order, all duplicate values will be grouped together. As with all these array challenges, do this without using any built-in array methods.
