@@ -92,12 +92,14 @@ console.log(swapper([1,2,3,5]));
 
 // //Second: Solve this without using any nested loops.
 
-// function sorted(arr){
-//     for (var i=0; i<arr.length; i++){
-//         if (arr[i]==arr[i+1] || arr[i-1]==arr[i]){
-//             arr.splice(arr[i], arr[i+1]);
-//         }
-//     }
-//     console.log(arr);
-// }
-// sorted([1,1,1,2,2,2,2,3,4,4,4])
+function sorted(arr){
+    var sorted_Arr = [];
+    for (var i=0; i<arr.length; i++){
+        if(arr[i] != arr[i+1]){
+            // console.log(arr[i], arr[i+1]);
+            sorted_Arr.push(arr[i]);
+        }
+    }
+    return sorted_Arr;
+}
+console.log(sorted([1,1,1,2,2,3,4,4,5,5,5,5,6,6,6,7,7]));
