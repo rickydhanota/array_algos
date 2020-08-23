@@ -41,11 +41,22 @@ console.log(insertAt([11,12,13,14], 0, 5))
 
 // //4. Given an array and an index into array, remove and return the array value at that index. Do this without using built-in array methods except pop(). Think of popFront(arr) as equivalent to removeAt(arr,0).
 
-// var a=[13,14,15,16];
-// console.log(a);
-// popper=a.pop();
-// a[3] = popper;
-// console.log(a);
+function removeAt(arr, idx){
+    for (var i=0; i<arr.length; i++){
+        if(arr[i]==arr[idx]){
+            temp = arr[i];
+            // console.log(temp)
+            for(var i=idx; i<arr.length; i++){
+                arr[i] = arr[i+1];
+            }
+            arr.pop();
+            console.log(arr);
+        }
+    }
+    return `The array is ${arr} and the value removed is ${temp}`
+}
+console.log(removeAt([20,21,22,23,24], 2))
+
 
 // /////////////////////////////////////////////////
 
